@@ -1,0 +1,84 @@
+
+@import "colours";
+
+@mixin displaytype()
+{
+    display: inline-block;
+}
+
+@mixin inputs()
+{
+    height: 24px;
+    border-radius: 8px;
+    border: 1px solid $grey5;
+}
+
+.takeval
+{
+    @include displaytype();
+    
+}
+
+.val1{
+    @include inputs();
+}
+.val2{
+    @include inputs();
+}
+
+
+.equals
+{
+   margin: 48px 0px 16px 0px;
+   height: 48px;
+   padding: 16px 24px;
+   width:100%;
+   border: none;
+   background-color: $accent;
+   color: white;
+   border-radius: 8px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.equals:hover 
+{
+    background: $primary;
+    cursor: pointer;
+}
+
+
+
+.title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.res{
+    font-size: 48px;
+    // @include displaytype();
+    color: $primary;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: $grey6;
+    justify-content: center;
+    line-height: 120px;
+    margin: 48px 0px;
+    border-radius: 8px;
+    height: 120px;
+
+}
+
+.clear
+{
+   height: 48px;
+   padding: 16px 24px;
+   width:100%;
+   color: $grey1;
+   border-radius: 8px;
+   border: none;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clear:hover {
+    cursor: pointer;
+    background-color: $grey5;
+}

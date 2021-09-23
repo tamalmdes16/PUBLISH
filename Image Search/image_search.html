@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link href="../styles/override.css" rel="stylesheet">
+    </head>
+    <body><div class="container-fluid">
+
+         <!-- NAVBAR -->
+         <div class="row primanav">
+            <div class="col">
+                <script id="replace_with_navbar" src="../nav.js"></script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><br><br></p>
+            </div>
+        </div>
+
+        <center>
+            <input type="text" name="searchkey" class="search" id="keyword" placeholder="Search images by keywords...">
+            <button class="butt" onclick="searchimg(document.getElementById('keyword').value)"> Search Images</button>
+            
+            <div class="container" id="container">
+                
+                <div class="img" id="img1"></div> 
+                <div class="img" id="img2"></div>
+                <div class="img" id="img3"></div>
+                <div class="img" id="img4"></div>
+                <div class="img" id="img5"></div>
+                <div class="img" id="img6"></div>
+                <div class="img" id="img7"></div>
+                <div class="img" id="img8"></div>
+                <div class="img" id="img9"></div>
+                <div class="img" id="img10"></div>
+                <div class="img" id="img11"></div>
+                <div class="img" id="img12"></div>
+                <div class="img" id="img13"></div>
+                <div class="img" id="img14"></div>
+                <div class="img" id="img15"></div>
+            </div>
+           
+            
+            </center>
+        
+        <script>
+           function searchimg(keyword)
+           {
+                fetch("https://api.pexels.com/v1/search?query="+keyword, {headers: {Authorization: "563492ad6f91700001000001e5ba88749881481b90478ce11edc4d39"}})
+
+                .then(resp => 
+                {
+                    return resp.json()
+                })
+                .then(data => 
+                {
+                    for(let i=1; i<16; i++){
+                        /* console.log(data.photos[0].src.original) */
+                        document.getElementById('img'+i).innerHTML=`<img src="${data.photos[i-1].src.original}" alt="Loading..."/>`
+                    }
+                })
+                .catch(data =>
+                {
+                    alert("No results found!!!")
+                })
+           }
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        </div>
+    </body>
+</html>

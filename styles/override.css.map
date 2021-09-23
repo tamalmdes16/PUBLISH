@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CACT;EACA,gBAAgB,EAAE,OAAO;CACxB;;AAED,AAAA,MAAM,CACN;EACI,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,eAAe;CAC1B;;AACD,AAAA,aAAa,CAAC;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,KAAK;CACpB;;AAED,AAAA,KAAK,CACL;EACI,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "override.scss"
+    ],
+    "names": [],
+    "file": "override.css"
+}

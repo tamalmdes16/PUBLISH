@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Game</title>
+
+  <link rel="stylesheet" href="main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link href="../styles/override.css" rel="stylesheet">
+</head>
+
+<body> <div class="container-fluid">
+
+   <!-- NAVBAR -->
+   <div class="row primanav">
+    <div class="col">
+        <script id="replace_with_navbar" src="../nav.js"></script>
+    </div>
+</div>
+<div class="row">
+  <div class="col">
+      <p><br><br></p>
+  </div>
+</div>
+
+  <center>
+    <h3>Reach the finish line first!</h3>
+    <table class="container1" id="container1">
+      <tr>
+        <td class="boxplayer1" id="boxm1"></td>
+        <td class="boxplayer1" id="boxm2"></td>
+        <td class="boxplayer1" id="boxm3"></td>
+        <td class="boxplayer1" id="boxm4"></td>
+        <td class="boxplayer1" id="boxm5"></td>
+        <td class="boxplayer1" id="boxm6"></td>
+        <td class="boxplayer1" id="boxm7"></td>
+        <td class="boxplayer1" id="boxm8"></td>
+        <td class="boxplayer1" id="boxm9"></td>
+        <td class="boxplayer1" id="boxm10"></td>
+        <td class="boxplayer1" id="boxm11"></td>
+        <td class="boxplayer1" id="boxm12"></td>
+        <td class="boxplayer1" id="boxm13"></td>
+        <td class="boxplayer1" id="boxm14"></td>
+        <td class="boxplayer1" id="boxm15"></td>
+        <td class="boxplayer1" id="boxm16"></td>
+        <td class="boxplayer1" id="boxm17"></td>
+        <td class="boxplayer1" id="boxm18">Finish</td>
+      </tr>
+    </table>
+    <button class="butt" id="b1" onclick="var pass1='container1'; var pl1='Player 1'; var butt1='b1'; var swap1='b2'; pdr(pass1, pl1, butt1, swap1);">Player
+      1, roll dice!</button>
+
+    <table class="container2" id="container2">
+      <tr>
+        <td class="boxplayer2" id="boxn1"></td>
+        <td class="boxplayer2" id="boxn2"></td>
+        <td class="boxplayer2" id="boxn3"></td>
+        <td class="boxplayer2" id="boxn4"></td>
+        <td class="boxplayer2" id="boxn5"></td>
+        <td class="boxplayer2" id="boxn6"></td>
+        <td class="boxplayer2" id="boxn7"></td>
+        <td class="boxplayer2" id="boxn8"></td>
+        <td class="boxplayer2" id="boxn9"></td>
+        <td class="boxplayer2" id="boxn10"></td>
+        <td class="boxplayer2" id="boxn11"></td>
+        <td class="boxplayer2" id="boxn12"></td>
+        <td class="boxplayer2" id="boxn13"></td>
+        <td class="boxplayer2" id="boxn14"></td>
+        <td class="boxplayer2" id="boxn15"></td>
+        <td class="boxplayer2" id="boxn16"></td>
+        <td class="boxplayer2" id="boxn17"></td>
+        <td class="boxplayer2" id="boxn18">Finish</td>
+      </tr>
+    </table>
+    <button class="butt" id="b2" onclick="var pass2='container2'; var pl2='Player 2'; var butt2='b2'; var swap2='b1'; pdr(pass2, pl2, butt2, swap2);">Player 2, roll dice!</button>
+
+
+
+    <script>
+
+      var pos1 = 0;
+      var pos2 = 0;
+      document.getElementById('boxm1').innerHTML = "Player 1"
+      document.getElementById('boxn1').innerHTML = "Player 2"
+
+      var diceroll = function () {
+        return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+      }
+
+      function pdr(pass, player, butt, swap) {
+        
+         var move=diceroll()
+
+        
+
+
+        if (pass == "container1") {
+          pos1= movepl(move, pos1, player, butt, pass, swap)
+          
+        }
+        else if(pass =="container2"){
+
+          pos2= movepl(move, pos2, player, butt, pass, swap)
+
+        }
+      }
+
+        function movepl(move, pos, player, butt, pass, swap) 
+        {
+            alert(move)
+          
+            if (move+pos<18)
+            {
+            var cell = document.getElementById(pass).rows[0].cells;
+            cell[pos].innerHTML = "";
+            pos = move + pos;
+            cell[pos].innerHTML = player;
+            
+            if (pos == 17) 
+            {
+            alert(player + " wins!!!")
+            document.getElementById(swap).innerHTML = "Game over!"
+            }
+            }
+            
+            else {
+            alert(move + ", wait for your next turn!")
+            }
+            document.getElementById(swap).style.backgroundColor='yellow'
+            document.getElementById(butt).style.backgroundColor='#c0c0c0'
+            return pos
+          
+            
+        }
+
+
+
+
+
+
+        
+
+
+
+
+
+    </script>
+  </center>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+
+</html>

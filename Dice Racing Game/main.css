@@ -1,0 +1,37 @@
+table {
+  width: 80%;
+  margin: 16px;
+}
+
+.boxplayer1 {
+  width: 64px;
+  height: 48px;
+  text-align: center;
+  border: 1px solid #ffc26c;
+  /* border-radius: 8px; */
+  background-color: #fff3e2;
+}
+
+.boxplayer2 {
+  width: 64px;
+  height: 48px;
+  text-align: center;
+  border: 1px solid #79c3ff;
+  /* border-radius: 8px; */
+  background-color: #e2f2ff;
+}
+
+butt {
+  margin-bottom: 48px;
+  height: 48px;
+  width: 160px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #dddddd;
+}
+
+butt:hover {
+  background-color: #cccccc;
+}
+/*# sourceMappingURL=main.css.map */

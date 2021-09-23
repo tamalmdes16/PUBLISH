@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Static Calculator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link href="../styles/override.css" rel="stylesheet">
+    </head>
+    <body><div class="container-fluid">
+        
+         <!-- NAVBAR -->
+         <div class="row primanav">
+            
+                <script id="replace_with_navbar" src="../nav.js"></script>
+            
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><br><br></p>
+            </div>
+        </div>
+
+        <center>
+        <h1 class="title">Simple calculator</h1>
+        
+        
+        
+        <div class="takeval">
+            <div class="res"id="result"></div>
+            <input type="number" class="val1" name="firstvalue" id="value1">
+            <select name="ops" id="operator">
+                <option value="add">+</option>
+                <option value="sub">-</option>
+                <option value="by">/</option>
+                <option value="into">*</option>
+            </select>
+            <input type="number" class="val2" name="secondvalue" id="value2"><br>
+            <button onclick="finalval()" class="equals">See Result</button>
+            <button onclick="clearres()" class="clear">Clear Result</button>
+        </div>
+        
+
+
+        <script>
+            
+            function finalval()
+            {
+                var x= document.getElementById('value1').valueAsNumber;
+                var op= document.getElementById('operator').value;
+                var y= document.getElementById('value2').valueAsNumber;
+                var final=0;
+                // console.log(x)
+                // console.log(y)
+                // console.log(op)
+
+                if(op=="add"){
+                    final=x+y;
+                    document.getElementById("result").innerHTML=final;
+                }
+                else if(op=="sub")
+                {
+                    final=x-y;
+                    document.getElementById("result").innerHTML=final;
+                }
+                else if(op=="by")
+                {
+                    final=x/y;
+                    document.getElementById("result").innerHTML=final;
+                }
+                else if(op=="into")
+                {
+                    final=x*y;
+                    document.getElementById("result").innerHTML=final;
+                }
+            }
+
+            function clearres()
+            {
+                document.getElementById("result").innerHTML="  "; 
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </center>
+</div>
+    </body>
+</html>
